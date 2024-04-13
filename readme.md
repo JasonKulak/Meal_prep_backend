@@ -11,8 +11,19 @@
     - **Deployed Website:**
 
 ## Dependencies -
+- MongoDB
+- mongoose
+- express
+- ejs
 
 ## Route Map
+| Route Name  | Endpoint | Method | Description                 |
+| ----------- | -------- | ------ | --------------------------- |
+| Index |  /   | GET    | Renders days of the week on a page |
+| Show | /:id | GET | Renders an individual day of the week with meals (breakfast, lunch, dinner) planned |
+| Create |  /   | POST    | Renders a created meal(s) for that day of the week |
+| Update | /:id   | PUT    | Updates data to meal on the day of the week Index by id |
+| Delete | /:id   | DELETE   | Removes a meal/day of the week from the data array |
 
 ## ERD (Entity Relationship Diagram)
 ![Schema](https://imgur.com/1ecQZms.jpg)
