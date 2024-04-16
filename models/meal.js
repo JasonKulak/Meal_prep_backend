@@ -14,6 +14,7 @@ const mealSchema = new mongoose.Schema({
     isItPrepared: Boolean,
 })
 
+//Meal model - interface with the database for Meals
 const Meal = mongoose.model("Meal", mealSchema)
 
 //Export the Meal Model
