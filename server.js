@@ -26,7 +26,7 @@ app.use("/meal", MealRouter)
 
 
 // Listener
-const PORT = process.env.PORT || 1984
+const PORT = process.env.PORT || 1951
 app.listen(PORT, () => {
     console.log(`GET IN MY BELLY!!!`)
 })

@@ -28,6 +28,10 @@ router.get("/seed", async (req, res) => {
 
 //INDUCES
 //Index Route - GET
+router.get("/", async (req, res) => {
+    const meals = await Meal.find({}).catch((error) => errorHandler(error,res))
+    res.render("meal/index.ejs", {meals})
+})
 
 //New Route - GET
 
