@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-// const MealRouter = require('./controller/meal')
+const MealRouter = require('./controllers/meal')
 
 //Application Object
 const app = express()
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
     res.send("I'm so hungry I could eat at Arby's")
 })
 
-// app.use("/meal", MealRouter)
+app.use("/meal", MealRouter)
 
 
 
