@@ -11,9 +11,9 @@ mongoose.connect(DATABASE_URL);
 
 //Connection Events
 mongoose.connection
-.on("open", () => console.log("Connected to Mongoose, Dude!"))
-.on("close", () => console.logt("Disconnected from Mongoose"))
-.on("error", (error) => console.log(error))
+.on("error", (error) => console.log("error"))
+.on("connected", () => console.log("Connected to Mongoose, Dude!"))
+.on("disconnected", () => console.log("Disconnected from Mongoose"))
 
 //export the mongoose object
 module.exports = mongoose

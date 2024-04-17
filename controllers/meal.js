@@ -13,7 +13,7 @@ function errorHandler(error, res){
 
 //Seed Route
 router.get("/seed", async (req, res) => {
-    await Meal.deleteMany({}).catch((error) => errorHandler(error, res))
+    await Meal.deleteMany({})
     const meals = await Meal.create([
         {dayOfTheWeek: "Monday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
         {dayOfTheWeek: "Tuesday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
@@ -22,15 +22,21 @@ router.get("/seed", async (req, res) => {
         {dayOfTheWeek: "Friday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
         {dayOfTheWeek: "Saturday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
         {dayOfTheWeek: "Sunday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
-    ]).catch((error) => errorHandler(error, res))
+    ])
     res.json(meals)
+    // res.send("hello world")
 })
 
 //INDUCES
 //Index Route - GET
 router.get("/", async (req, res) => {
-    const meals = await Meal.find({}).catch((error) => errorHandler(error,res))
-    res.render("meal/index.ejs", {meals})
+    try{
+        const meals = await Meal.find({})
+        res.render("meal/index.ejs", {meals})
+        // res.send("hello world")
+    }catch (err){
+        res.send(err)
+    }
 })
 
 //New Route - GET
@@ -44,7 +50,12 @@ router.get("/", async (req, res) => {
 //Edit Route - GET
 
 //Show Route - GET
-
+router.get("/show/:id", async (req, res) => {
+    const meal = await Meal.findById(req.params.id)
+    // console.log(meal)
+    res.render("meal/show.ejs", {meal})
+    // res.send("hello world")
+})
 
 
 //EXPORT THE ROUTES

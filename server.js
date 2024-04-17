@@ -1,5 +1,6 @@
 // Dependencies
 require('dotenv').config()
+require('./models/connection')
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
@@ -14,19 +15,16 @@ app.use("/static", express.static("public"))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
 
-//routes
-app.get("/", (req, res) => {
-    res.send("I'm so hungry I could eat at Arby's")
-})
 
-app.use("/meal", MealRouter)
+
+app.use("/", MealRouter)
 
 
 
 
 
 // Listener
-const PORT = process.env.PORT || 1951
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`GET IN MY BELLY!!!`)
 })
