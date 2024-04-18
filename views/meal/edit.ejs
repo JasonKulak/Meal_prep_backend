@@ -9,16 +9,11 @@
     <div>
         <h1>Update <%= meal.dayOfTheWeek %> meals</h1>
     </div>
-    <form action="/<%= meal._id %>?_methond=PUT" method="post">
-        <input type="text" name="breakfast" placeholder="breakfast description" value="<%= meal.breakfast %>">
-        <input type="text" name="forHowManyPeople" placeholder="For how many?" value="<%= meal.forHowManyPeople %>">
+    <form action="/show/<%= meal._id %>?_method=PUT" method="post">
+        <input type="text" name="meal" placeholder="meal description" value="<%= meal.meal %>">
+        <input type="number" name="forHowManyPeople" placeholder="For how many?" value="<%= meal.forHowManyPeople %>">
         <input type="checkbox" name="isItPrepared" <%= meal.isItPrepared ? "checked" : "" %>>
         <input type="text" name="lunch" placeholder="lunch description" value="<%= meal.lunch %>">
-        <input type="text" name="forHowManyPeople" placeholder="For how many?" value="<%= meal.forHowManyPeople %>">
-        <input type="checkbox" name="isItPrepared" <%= meal.isItPrepared ? "checked" : "" %>>
-        <input type="text" name="dinner" placeholder="dinner description" value="<%= meal.dinner %>">
-        <input type="text" name="forHowManyPeople" placeholder="For how many?" value="<%= meal.forHowManyPeople %>">
-        <input type="checkbox" name="isItPrepared" <%= meal.isItPrepared ? "checked" : "" %>>
         <input type="submit" value="Update <%= meal.dayOfTheWeek %>">
     </form>
     <div>
