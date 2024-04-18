@@ -42,8 +42,14 @@ router.get("/", async (req, res) => {
 //Destroy Route - DELETE
 
 //Update Route - PUT
+router.put("/show/:id", async (req, res) => {
+    req.body.available = Boolean(req.body.available)
+    await Meal.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect("/")
+})
 
 //Create Route - POST
+
 
 //Edit Route - GET
 router.get("/show/:id/edit", async (req, res) => {
