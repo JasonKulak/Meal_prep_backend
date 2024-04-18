@@ -24,7 +24,6 @@ router.get("/seed", async (req, res) => {
         {dayOfTheWeek: "Sunday", breakfast: "", forHowManyPeople: 1, isItPrepared: false, lunch: "", forHowManyPeople: 1, isItPrepared: false, dinner: "", forHowManyPeople: 2, isItPrepared: false},
     ])
     res.json(meals)
-    // res.send("hello world")
 })
 
 //INDUCES
@@ -33,7 +32,6 @@ router.get("/", async (req, res) => {
     try{
         const meals = await Meal.find({})
         res.render("meal/index.ejs", {meals})
-        // res.send("hello world")
     }catch (err){
         res.send(err)
     }
@@ -48,13 +46,19 @@ router.get("/", async (req, res) => {
 //Create Route - POST
 
 //Edit Route - GET
+router.get("/show/:id/edit", async (req, res) => {
+    try{
+        const meal = await Meal.findById(req.params.id)
+        res.render("meal/edit.ejs", {meal})
+    }catch (err){
+        res.send(err)
+    }
+})
 
 //Show Route - GET
 router.get("/show/:id", async (req, res) => {
     const meal = await Meal.findById(req.params.id)
-    // console.log(meal)
     res.render("meal/show.ejs", {meal})
-    // res.send("hello world")
 })
 
 

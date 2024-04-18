@@ -10,10 +10,38 @@
         <h1><%= meal.dayOfTheWeek %></h1>
         <div>
             <h2>Breakfast:</h2>
-            <!-- <h3><%= meal.breakfast %></h3>
+            <h3><%= meal.breakfast %></h3>
             <h2>How many people?</h2>
             <h3><%= meal.forHowManyPeople %></h3>
-            <h2>Prep'd? <%= meal.isItPrepared ? "YES" : "NO" %></h2> -->
+            <h2>Prep'd? <%= meal.isItPrepared ? "Yes! And I can't wait to smash!!!" : "Not yet :) As soon as it is, I will murder the food with my mouth" %></h2>
+        </div>
+        <div>
+            <h2>Lunch:</h2>
+            <h3><%= meal.lunch %></h3>
+            <h2>How many people?</h2>
+            <h3><%= meal.forHowManyPeople %></h3>
+            <h2>Prep'd? <%= meal.isItPrepared ? "Yes! And I can't wait to smash!!!" : "Not yet :) As soon as it is, I will murder the food with my mouth" %></h2>
+        </div>
+        <div>
+            <h2>Dinner:</h2>
+            <h3><%= meal.dinner %></h3>
+            <h2>How many people?</h2>
+            <h3><%= meal.forHowManyPeople %></h3>
+            <h2>Prep'd? <%= meal.isItPrepared ? "Yes! And I can't wait to smash!!!" : "Not yet :) As soon as it is, I will murder the food with my mouth" %></h2>
+        </div>
+        <div>
+            <a href="/show/<%= meal._id %>/edit">
+                <button>
+                    <h5>Edit Meal</h5>
+                </button>
+            </a>
+        </div>
+        <div>
+            <a href="/">
+                <button>
+                    <h5>Back to the week</h5>
+                </button>
+            </a>
         </div>
     </div>
 </body>
