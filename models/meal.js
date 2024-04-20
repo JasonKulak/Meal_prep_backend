@@ -3,9 +3,15 @@ const mongoose = require("./connection")
 // Meal Schema
 const mealSchema = new mongoose.Schema({
     dayOfTheWeek: String,
-    meal: String,
-    forHowManyPeople: Number,
-    isItPrepared: Boolean,
+    mealOne: String,
+    howManyPeopleBreakfast: Number,
+    isItPreparedOne: Boolean,
+    mealTwo: String,
+    howManyPeopleLunch: Number,
+    isItPreparedTwo: Boolean,
+    mealThree: String,
+    howManyPeopleDinner: Number,
+    isItPreparedThree: Boolean,
 })
 
 //Meal model - interface with the database for Meals

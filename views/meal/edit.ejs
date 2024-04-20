@@ -10,18 +10,26 @@
         <h1>Update <%= meal.dayOfTheWeek %> meals</h1>
     </div>
     <form action="/show/<%= meal._id %>?_method=PUT" method="post">
-        <input type="text" name="meal" placeholder="meal description" value="<%= meal.meal %>">
-        <input type="number" name="forHowManyPeople" placeholder="For how many?" value="<%= meal.forHowManyPeople %>">
-        <input type="checkbox" name="isItPrepared" <%= meal.isItPrepared ? "checked" : "" %>>
-        <input type="text" name="lunch" placeholder="lunch description" value="<%= meal.lunch %>">
+        <input type="text" name="mealOne" placeholder="Breakfast description" value="<%= meal.mealOne %>">
+        <input type="number" name="howManyPeopleBreakfast" placeholder="For how many?" value="<%= meal.howManyPeopleBreakfast %>">
+        <input type="checkbox" name="isItPreparedOne" <%= meal.isItPreparedOne ? "checked" : "" %>>
+
+        <input type="text" name="mealTwo" placeholder="Lunch description" value="<%= meal.mealTwo %>">
+        <input type="number" name="howManyPeopleLunch" placeholder="For how many?" value="<%= meal.howManyPeopleLunch %>">
+        <input type="checkbox" name="isItPreparedTwo" <%= meal.isItPreparedTwo ? "checked" : "" %>>
+
+        <input type="text" name="mealThree" placeholder="Dinner description" value="<%= meal.mealThree %>">
+        <input type="number" name="howManyPeopleDinner" placeholder="For how many?" value="<%= meal.howManyPeopleDinner %>">
+        <input type="checkbox" name="isItPreparedThree" <%= meal.isItPreparedThree ? "checked" : "" %>>
+
         <input type="submit" value="Update <%= meal.dayOfTheWeek %>">
     </form>
-    <div>
+    <!-- <div>
         <a href="/">
             <button>
                 <h5>Back to updated <%= meal.dayOfTheWeek %> meal</h5>
             </button>
         </a>
-    </div>
+    </div> -->
 </body>
 </html>

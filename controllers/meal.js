@@ -15,30 +15,20 @@ function errorHandler(error, res){
 router.get("/seed", async (req, res) => {
     await Meal.deleteMany({})
     const meals = await Meal.create([
-        {dayOfTheWeek: "Monday", meal: "Breakfast", forHowManyPeople: null, isItPrepared: true},
-        {dayOfTheWeek: "Monday", meal: "Lunch", forHowManyPeople: 10, isItPrepared: false},
-        {dayOfTheWeek: "Monday", meal: "Dinner", forHowManyPeople: 2, isItPrepared: true},
-        {dayOfTheWeek: "Tuesday", meal: "Breakfast", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Tuesday", meal: "Lunch", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Tuesday", meal: "Dinner", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Wednesday", meal: "Breakfast", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Wednesday", meal: "Lunch", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Wednesday", meal: "Dinner", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Thursday", meal: "Breakfast", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Thursday", meal: "Lunch", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Thursday", meal: "Dinner", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Friday", meal: "Breakfast", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Friday", meal: "Lunch", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Friday", meal: "Dinner", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Saturday", meal: "", forHowManyPeople: null, isItPrepared: false},
-        {dayOfTheWeek: "Sunday", meal: "", forHowManyPeople: null, isItPrepared: false},
+        {dayOfTheWeek: "Monday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: true, mealTwo: "Lunch", howManyPeopleLunch: 10, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: 2, isItPreparedThree: true},
+        {dayOfTheWeek: "Tuesday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
+        {dayOfTheWeek: "Wednesday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
+        {dayOfTheWeek: "Thursday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
+        {dayOfTheWeek: "Friday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
+        {dayOfTheWeek: "Saturday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
+        {dayOfTheWeek: "Sunday", mealOne: "Breakfast", howManyPeopleBreakfast: null, isItPreparedOne: false, mealTwo: "Lunch", howManyPeopleLunch: null, isItPreparedTwo: false, mealThree: "Dinner", howManyPeopleDinner: null, isItPreparedThree: false},
     ])
     res.json(meals)
 })
 
 //INDUCES
-//Index Route - GET
-//landing page option
+// Index Route - GET
+// Index page option
 // router.get("/monday", async (req, res) => {
 //     try{
 //         let meals = await Meal.find({})
@@ -63,22 +53,29 @@ router.get("/seed", async (req, res) => {
 router.get("/", async (req, res) => {
     // res.render("meal/landing.ejs")
     let meals = await Meal.find({})
+    // console.log(meals)
     res.render("meal/index.ejs", {meals})
 })
+
 //New Route - GET
 
 //Destroy Route - DELETE
 
 //Update Route - PUT
 router.put("/show/:id", async (req, res) => {
-    req.body.available = Boolean(req.body.available)
+    req.body.isItPreparedOne = Boolean(req.body.isItPreparedOne)
+    req.body.isItPreparedTwo = Boolean(req.body.isItPreparedTwo)
+    req.body.isItPreparedThree = Boolean(req.body.isItPreparedThree)
+    // console.log(req.body)
     await Meal.findByIdAndUpdate(req.params.id, req.body)
     res.redirect("/")
 })
 
 //Create Route - POST
 router.post("/", async (req, res) => {
-    req.body.available = Boolean(req.body.available)
+    req.body.isItPreparedOne = Boolean(req.body.isItPreparedOne)
+    req.body.isItPreparedTwo = Boolean(req.body.isItPreparedTwo)
+    req.body.isItPreparedThree = Boolean(req.body.isItPreparedThree)
     await Meal.create(req.body)
     res.redirect("/")
 })
@@ -96,6 +93,7 @@ router.get("/show/:id/edit", async (req, res) => {
 //Show Route - GET
 router.get("/show/:id", async (req, res) => {
     const meal = await Meal.findById(req.params.id)
+    console.log(meal)
     res.render("meal/show.ejs", {meal})
 })
 
