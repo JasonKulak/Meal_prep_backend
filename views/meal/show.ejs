@@ -37,6 +37,11 @@
             </a>
         </div>
         <div>
+            <form action="/show/<%= meal.id %>?_method=DELETE" method="post">
+                <input type="submit" value="Delete Day">
+            </form>
+        </div>
+        <div>
             <a href="/">
                 <button>
                     <h5>Back to the week</h5>

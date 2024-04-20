@@ -58,8 +58,15 @@ router.get("/", async (req, res) => {
 })
 
 //New Route - GET
+router.get("/new", (req, res) => {
+    res.render("meal/new.ejs")
+})
 
 //Destroy Route - DELETE
+router.delete("/show/:id", async (req, res) => {
+    await Meal.findByIdAndDelete(req.params.id)
+    res.redirect("/")
+})
 
 //Update Route - PUT
 router.put("/show/:id", async (req, res) => {
