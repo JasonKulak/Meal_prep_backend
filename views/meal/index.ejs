@@ -8,14 +8,14 @@
 </head>
 <body>
 
-    <div class="text-center">
+    <div class="text-center row bg-image" style="background-image: url('https://cdnsm5-ss18.sharpschool.com/UserFiles/Servers/Server_117089/Image/About/Calendars/clock%20and%20calendar.jpeg'); height: 100vh">
         <div>
             <h1>Weekly Food Planner</h1>
         </div>
-        <div>
+        <div class="grid gap-3">
             <% meals.forEach((meal, index) => { %>
                 <a href="/show/<%= meal._id %>">
-                    <div>
+                    <div class="p-2 g-col-6">
                         <h2><%= meal.dayOfTheWeek %></h2>
                     </div>
                 </a>
