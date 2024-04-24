@@ -9,6 +9,9 @@
 <body>
     <div>
         <h1 class="display-2 text-decoration-underline"><%= meal.dayOfTheWeek %></h1>
+        
+        <div class="col-lg-6">
+        <!-- accordion  -->
         <div class="lead text-center">
             <div class="accordion" id="accordionPanelsStayOpen">
                 <div class="accordion-item">
@@ -60,7 +63,8 @@
                     </div>     
                 </div>
             </div>
-        </div>                             
+        </div> 
+        </div>                        
         </div>
         <div>
             <a href="/show/<%= meal._id %>/edit">
