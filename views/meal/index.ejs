@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <div class="text-center row bg-image" style="background-image: url('https://cdnsm5-ss18.sharpschool.com/UserFiles/Servers/Server_117089/Image/About/Calendars/clock%20and%20calendar.jpeg'); height: 100vh">
+    <div class="text-center row">
         <div>
-            <h1>Weekly Food Planner</h1>
+            <h1 class="py-5">Weekly Food Planner</h1>
         </div>
         <div class="grid gap-3">
             <% meals.forEach((meal, index) => { %>
@@ -21,7 +21,8 @@
                 </a>
             <% }) %>
         </div>
-        <div>
+
+        <div class="py-5">
             <a href="/new">
                 <div>
                     <button>ADD missing Day/Meal</button>
