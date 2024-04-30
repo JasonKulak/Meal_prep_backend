@@ -8,7 +8,7 @@
 - **Github URL: https://github.com/JasonKulak/Meal_prep_backend**
 
 **Capstone**
-    - **Deployed Website:**
+    - **Deployed Website: https://meal-prep-backend.onrender.com/**
 
 # Trello Board Link - https://trello.com/b/IJI4DOVv/meal-prep
 
