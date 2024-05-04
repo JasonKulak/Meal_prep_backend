@@ -13,8 +13,11 @@
 # Trello Board Link - https://trello.com/b/IJI4DOVv/meal-prep
 
 ## Dependencies -
+- dotenv
 - MongoDB
 - mongoose
+- morgan
+- method-override
 - express
 - ejs
 - Bootstrap
